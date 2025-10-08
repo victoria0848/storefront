@@ -1,0 +1,223 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Header Styles
+.header {
+  background: $color-bg-light;
+  border-bottom: 1px solid $color-border;
+  box-shadow: $shadow-sm;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacing-lg;
+    padding: $spacing-md 0;
+    
+    @include respond-to(md) {
+      flex-wrap: wrap;
+      gap: $spacing-md;
+    }
+  }
+  
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    
+    .logo {
+      font-size: $font-size-2xl;
+    }
+    
+    .brand-text {
+      h1 {
+        margin: 0;
+        font-size: $font-size-xl;
+        color: $color-primary;
+      }
+      
+      .tagline {
+        font-size: $font-size-xs;
+        color: $color-text-light;
+        display: block;
+        margin-top: -$spacing-xs;
+      }
+    }
+  }
+  
+  .search-container {
+    flex: 1;
+    max-width: 400px;
+    position: relative;
+    margin: 0 $spacing-lg;
+    
+    @include respond-to(md) {
+      order: 3;
+      width: 100%;
+      max-width: none;
+      margin: $spacing-sm 0 0 0;
+    }
+    
+    .search {
+      width: 100%;
+      padding: $spacing-sm $spacing-md;
+      border: 1px solid $color-border;
+      border-radius: $border-radius;
+      font-size: $font-size-sm;
+      background: $color-bg;
+      transition: all 0.2s ease;
+      
+      &:focus {
+        outline: none;
+        border-color: $color-primary;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+    }
+    
+    .search-btn {
+      position: absolute;
+      right: $spacing-sm;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: $spacing-xs;
+      background: none;
+      color: $color-text-light;
+      
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+  
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+    
+    @include respond-to(md) {
+      gap: $spacing-md;
+    }
+    
+    .nav-link {
+      font-weight: 500;
+      color: $color-text;
+      padding: $spacing-sm $spacing-md;
+      border-radius: $border-radius;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        background: $color-bg;
+        color: $color-primary;
+      }
+    }
+    
+    .dropdown {
+      position: relative;
+      
+      .dropdown-toggle {
+        font-weight: 500;
+        color: $color-text;
+        padding: $spacing-sm $spacing-md;
+        border-radius: $border-radius;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+        
+        &:hover {
+          background: $color-bg;
+          color: $color-primary;
+        }
+        
+        &::after {
+          content: '▼';
+          font-size: $font-size-xs;
+          transition: transform 0.2s ease;
+        }
+      }
+      
+      &.active .dropdown-toggle::after {
+        transform: rotate(180deg);
+      }
+      
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: $color-bg-light;
+        border: 1px solid $color-border;
+        border-radius: $border-radius;
+        box-shadow: $shadow-lg;
+        min-width: 150px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.2s ease;
+        z-index: 10;
+        
+        a {
+          display: block;
+          padding: $spacing-sm $spacing-md;
+          color: $color-text;
+          transition: all 0.2s ease;
+          
+          &:hover {
+            background: $color-bg;
+            color: $color-primary;
+          }
+        }
+      }
+      
+      &.active .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+  }
+  
+  .cart {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    
+    &:hover {
+      background: $color-bg;
+    }
+    
+    .cart-icon {
+      font-size: $font-size-lg;
+    }
+    
+    .count {
+      background: $color-primary;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: $font-size-xs;
+      font-weight: 600;
+      min-width: 20px;
+    }
+    
+    .cart-text {
+      font-size: $font-size-sm;
+      font-weight: 500;
+      
+      @include respond-to(sm) {
+        display: none;
+      }
+    }
+  }
+}

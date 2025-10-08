@@ -1,0 +1,20 @@
+@mixin respond-to($breakpoint) {
+@if $breakpoint == sm { @media (max-width: #{$breakpoint-sm}) { @content; } }
+@else if $breakpoint == md { @media (max-width: #{$breakpoint-md}) { @content; } }
+@else if $breakpoint == lg { @media (max-width: #{$breakpoint-lg}) { @content; } }
+}
+
+
+@mixin card($radius: 12px, $pad: 1rem) {
+background: #fff;
+border-radius: $radius;
+padding: $pad;
+box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+
+@mixin grid-columns($cols, $gap: 1rem) {
+display: grid;
+grid-template-columns: repeat($cols, 1fr);
+gap: $gap;
+}

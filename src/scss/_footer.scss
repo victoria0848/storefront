@@ -1,0 +1,59 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Footer Styles
+.footer {
+  margin-top: $spacing-2xl;
+  padding: $spacing-2xl 0;
+  background: $color-bg-light;
+  border-top: 1px solid $color-border;
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-xl;
+    margin-bottom: $spacing-xl;
+  }
+  
+  .footer-section {
+    h3 {
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-md;
+      color: $color-text;
+    }
+    
+    p, a {
+      margin-bottom: $spacing-sm;
+      color: $color-text-light;
+      font-size: $font-size-sm;
+    }
+    
+    a:hover {
+      color: $color-primary;
+    }
+    
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xs;
+      
+      .social-link {
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+      }
+    }
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: $spacing-lg;
+    border-top: 1px solid $color-border;
+    
+    p {
+      margin: 0;
+      color: $color-text-light;
+      font-size: $font-size-sm;
+    }
+  }
+}
