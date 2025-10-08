@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "sass": "sass scss/style.scss:dist/style.css --no-source-map --style=expanded",
+    "sass:watch": "sass --watch scss/style.scss:dist/style.css"
+  },
+  "devDependencies": {
+    "sass": "^1.70.0"
+  }
+}
