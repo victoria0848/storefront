@@ -2,53 +2,134 @@
 @use "mixins";
 
 body {
-  font-family: system-ui, sans-serif;
-  background: $bg;
-  color: $text;
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: variables.$color-accent;
+  color: variables.$color-text;
   margin: 0;
+  line-height: 1.6;
 }
 
-header, footer {
-  background: white;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #eee;
-}
-
+header,
 footer {
-  border-top: 1px solid #eee;
-  margin-top: 2rem;
+  background-color: variables.$color-primary;
+  color: variables.$color-white;
+  padding: 1rem 2rem;
 }
 
-.navbar {
-  background: white;
+header {
+  @include mixins.flex(space-between, center);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  input {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: variables.$radius;
+    width: 40%;
+  }
+  button {
+    background: variables.$color-secondary;
+    color: variables.$color-white;
+    border: none;
+    border-radius: variables.$radius;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+}
+
+nav {
+  background: variables.$color-white;
+  border-bottom: 1px solid lighten(variables.$color-primary, 40%);
   padding: 0.5rem 2rem;
-  border-bottom: 1px solid #eee;
+
+  .navbar {
+    @include mixins.flex(center, center, row, 1.5rem);
+    flex-wrap: wrap;
+
+    button {
+      background: transparent;
+      border: none;
+      color: variables.$color-primary;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      &:hover {
+        color: variables.$color-secondary;
+      }
+    }
+  }
+}
+
+main {
+  @include mixins.container;
+  min-height: 70vh;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
-  padding: 1rem 2rem;
+  @include mixins.responsive-grid(260px);
 }
 
 .card {
-  @include card;
-  cursor: pointer;
+  @include mixins.card;
+  text-align: center;
+  img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: variables.$radius;
+  }
+  h3 {
+    margin: 0.5rem 0;
+  }
+  button {
+    background: variables.$color-secondary;
+    color: variables.$color-white;
+    border: none;
+    border-radius: variables.$radius;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    &:hover {
+      background: darken(variables.$color-secondary, 10%);
+    }
+  }
 }
 
-.card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 8px;
+footer {
+  @include mixins.flex(space-between, flex-start);
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+
+  div {
+    flex: 1;
+    min-width: 150px;
+    margin: 0.5rem 0;
+  }
+
+  a {
+    color: lighten(variables.$color-accent, 5%);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
-button {
-  background: $primary;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+/* Responsivt design */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 0.5rem;
+    input {
+      width: 100%;
+    }
+  }
+
+  nav .navbar {
+    flex-direction: column;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
 }

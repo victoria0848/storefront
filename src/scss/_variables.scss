@@ -1,6 +1,9 @@
-$primary: #0d6efd;
-$accent: #ff7a59;
-$bg: #f7f7fb;
-$text: #222;
-$radius: 10px;
-$shadow: 0 4px 12px rgba(0,0,0,0.1);
+$color-primary: #0a2342;   // 10% – mørk marineblå (headers, footer)
+$color-secondary: #1e3a5f; // 30% – mellemblå (knapper, ikoner, links)
+$color-accent: #e5ebf7;    // 60% – lyseblå / baggrund
+$color-white: #ffffff;
+$color-text: #1a1a1a;
+
+$radius: 12px;
+$shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+$max-width: 1200px;
