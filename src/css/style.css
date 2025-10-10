@@ -1,0 +1,158 @@
+body {
+  font-family: "Poppins", system-ui, sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1.6;
+}
+
+header,
+footer {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  padding: 1rem 2rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+header input {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  width: 40%;
+}
+header button {
+  background: #fffc5c;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+nav {
+  background-color: #ffffff;
+  border-bottom: 1px solid white;
+  padding: 0.5rem 2rem;
+}
+nav .navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+nav .navbar button {
+  width: 100%;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  border-color: #fffc5c;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0;
+  padding: 8px;
+}
+nav .navbar button:hover {
+  color: #ffffff;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  min-height: 70vh;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  transition: transform 0.2s;
+  text-align: center;
+}
+.card:hover {
+  transform: translateY(-3px);
+}
+.card img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 12px;
+}
+.card h3 {
+  margin: 0.5rem 0;
+}
+.card button {
+  background-color: #fffc5c;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.card button:hover {
+  color: #ffffff;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+footer div {
+  flex: 1;
+  min-width: 150px;
+  margin: 0.5rem 0;
+}
+footer a {
+  color: rgb(255, 252.4693251534, 117.5);
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsivt design */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  header input {
+    width: 100%;
+  }
+  nav .navbar {
+    flex-direction: column;
+  }
+  .grid {
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+  }
+}/*# sourceMappingURL=style.css.map */

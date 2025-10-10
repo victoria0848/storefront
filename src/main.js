@@ -27,7 +27,7 @@ async function init() {
   showRandomProducts();
 }
 
-// 🔎 Søgefunktion
+// search function
 function handleSearch(q) {
   const filtered = products.filter((p) =>
     p.title.toLowerCase().includes(q.toLowerCase())
@@ -35,23 +35,23 @@ function handleSearch(q) {
   renderProducts(filtered, showDetails);
 }
 
-// 🏷️ Kategorivisning
+// category function
 function filterByCategory(category) {
   const filtered = products.filter((p) => p.category === category);
   renderProducts(filtered, showDetails);
 }
 
-// 🎴 Random produkter
+// random products
 function showRandomProducts() {
   renderProducts(randomItems(products, 3), showDetails);
 }
 
-// 🔍 Detaljer
+// details
 function showDetails(id) {
   renderProductDetails(id);
 }
 
-// 🛒 Kurv
+// cart
 function showCart() {
   const cart = getCart();
   main.innerHTML = `

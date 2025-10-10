@@ -1,3 +1,5 @@
+@use "variables";
+
 @mixin flex($jc: flex-start, $ai: center, $dir: row, $gap: 1rem) {
   display: flex;
   justify-content: $jc;
@@ -13,9 +15,9 @@
 }
 
 @mixin card {
-  background: $color-white;
-  border-radius: $radius;
-  box-shadow: $shadow;
+  background: variables.$color-primary;
+  border-radius: variables.$radius;
+  box-shadow: variables.$shadow;
   padding: 1rem;
   transition: transform 0.2s;
   &:hover {
@@ -26,5 +28,5 @@
 @mixin responsive-grid($min: 220px) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax($min, 1fr));
-  gap: 1.5rem;
+  gap: 20px;
 }

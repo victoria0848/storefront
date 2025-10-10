@@ -21,7 +21,7 @@ export function renderProducts(list, onOpenDetails) {
     </div>
   `;
 
-  // "Køb nu"
+  // "Buy now"
   document.querySelectorAll(".buy-btn").forEach((btn) =>
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -32,7 +32,7 @@ export function renderProducts(list, onOpenDetails) {
     })
   );
 
-  // Klik på kort
+  // Click on the card
   document.querySelectorAll(".card").forEach((card) =>
     card.addEventListener("click", () => onOpenDetails(card.dataset.id))
   );

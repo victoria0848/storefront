@@ -1,9 +1,10 @@
 @use "variables";
 @use "mixins";
+@use "sass:color";
 
 body {
-  font-family: "Inter", system-ui, sans-serif;
-  background-color: variables.$color-accent;
+  font-family: "Poppins", system-ui, sans-serif;
+  background-color: variables.$color-primary;
   color: variables.$color-text;
   margin: 0;
   line-height: 1.6;
@@ -12,7 +13,7 @@ body {
 header,
 footer {
   background-color: variables.$color-primary;
-  color: variables.$color-white;
+  color: variables.$color-text;
   padding: 1rem 2rem;
 }
 
@@ -29,7 +30,7 @@ header {
   }
   button {
     background: variables.$color-secondary;
-    color: variables.$color-white;
+    color: variables.$color-text;
     border: none;
     border-radius: variables.$radius;
     padding: 0.5rem 1rem;
@@ -38,27 +39,32 @@ header {
 }
 
 nav {
-  background: variables.$color-white;
+  background-color: variables.$color-primary;
   border-bottom: 1px solid lighten(variables.$color-primary, 40%);
   padding: 0.5rem 2rem;
 
   .navbar {
-    @include mixins.flex(center, center, row, 1.5rem);
-    flex-wrap: wrap;
+    @include mixins.flex(center, center, row, 10px);
+    // flex-wrap: nowrap;
 
     button {
-      background: transparent;
-      border: none;
-      color: variables.$color-primary;
+      width: 100%;
+      background-color: variables.$color-primary;
+      color: variables.$color-text;
+      border-color: variables.$color-secondary;
+      border-radius: 10px;
       font-weight: 600;
       cursor: pointer;
-      position: relative;
+      margin: 0;
+      padding: 8px;
       &:hover {
-        color: variables.$color-secondary;
+        color: variables.$color-primary;
       }
     }
   }
 }
+
+
 
 main {
   @include mixins.container;
@@ -74,7 +80,7 @@ main {
   text-align: center;
   img {
     width: 100%;
-    height: 180px;
+    height: auto;
     object-fit: cover;
     border-radius: variables.$radius;
   }
@@ -82,14 +88,14 @@ main {
     margin: 0.5rem 0;
   }
   button {
-    background: variables.$color-secondary;
-    color: variables.$color-white;
+    background-color: variables.$color-secondary;
+    color: variables.$color-text;
     border: none;
     border-radius: variables.$radius;
     padding: 0.5rem 1rem;
     cursor: pointer;
     &:hover {
-      background: darken(variables.$color-secondary, 10%);
+      color: (variables.$color-primary);
     }
   }
 }
@@ -106,7 +112,8 @@ footer {
   }
 
   a {
-    color: lighten(variables.$color-accent, 5%);
+    color: lighten(variables.$color-secondary, 5%);
+    // color.adjust(variables.$color-accent, variables.$lightness: 5%);
     text-decoration: none;
     &:hover {
       text-decoration: underline;
@@ -128,8 +135,15 @@ footer {
     flex-direction: column;
   }
 
+  .grid {
+  display: flex;
+  flex-direction: row;
+  height: 80%;
+  }
+
   footer {
+    display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align:start;
   }
 }
